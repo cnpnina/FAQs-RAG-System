@@ -71,14 +71,13 @@ class TildaFAQRAG:
                 return 'THAI'
         return 'ENGLISH'
 
-    # ---------- ใหม่: helpers สำหรับตรวจคำถาม/ดึงคำตอบ ----------
+    # ---------- สำหรับตรวจคำถาม/ดึงคำตอบ ----------
     def _is_question_candidate(self, text: str) -> bool:
         if not text:
             return False
         text = text.strip()
         if len(text) < 3 or len(text) > 300:
             return False
-        # ถ้าลงท้ายด้วยเครื่องหมายคำถาม
         if text.endswith('?'):
             return True
         # ถ้าขึ้นต้นด้วยคำถามภาษาอังกฤษที่พบบ่อย
@@ -396,3 +395,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"\nFATAL ERROR: {e}")
+
